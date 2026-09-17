@@ -1,0 +1,10 @@
+# Default Flash Memory Configuration
+# Matches Flash-VStream-Qwen/models/flash_memory_constants.py
+# NOTE: Internal lengths are halved (temporal_length=60, spatial_length=30)
+
+flash_memory_temporal_length: 120
+flash_memory_temporal_method: 'kmeans_ordered'
+flash_memory_temporal_poolsize: 2
+flash_memory_temporal_pca_dim: 32
+flash_memory_spatial_length: 60
+flash_memory_spatial_method: 'klarge_retrieve'

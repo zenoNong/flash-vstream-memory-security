@@ -1,0 +1,8 @@
+# Expected Environment Versions
+# Colab execution environment must match these
+python=3.10.14
+torch=2.6.0
+torch.version.cuda=12.4
+torchvision=0.21.0
+transformers=4.45.0
+flash_attn=2.7.4.post1

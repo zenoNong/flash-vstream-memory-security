@@ -1,0 +1,5 @@
+# Optional training / evaluation dependencies
+# Install only if needed for fine-tuning or specific evaluation scripts
+peft
+deepspeed
+openai

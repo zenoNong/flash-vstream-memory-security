@@ -1,0 +1,43 @@
+{
+  "repository": "https://github.com/IVGSZ/Flash-VStream.git",
+  "reference_commit": "8f6bde2f397f4846505df4d03364d97617fc02ee",
+  "commit_message": "del",
+  "branch": "main",
+  "cloned_date": "2026-09-17",
+  "primary_implementation": "Flash-VStream-Qwen",
+  "important_source_files": {
+    "Flash-VStream-Qwen/models/compress_functions.py": {
+      "sha256": "c8368bbec6bf79f971048dc00d43c0a521adb78d737a311b3ed65fb5c7a83efc",
+      "description": "All temporal compression functions: drop, merge, kmeans, weighted_kmeans_ordered, PCA variants, dbscan, gmm, attention"
+    },
+    "Flash-VStream-Qwen/models/flash_memory_constants.py": {
+      "sha256": "b01bc37305a391cd94a70143296c0358fc97ae321b2e14e1588abb06b351c7c5",
+      "description": "DEFAULT_FLASH_MEMORY_CONFIG dictionary"
+    },
+    "Flash-VStream-Qwen/models/vstream_qwen2vl_model.py": {
+      "sha256": "d72662d167c819089c165ba52cef9b6996cae509e3643021c5a33c65d4f19233",
+      "description": "FlashMemory class, FlashVStreamQwen2VLModel, temporal_pool, temporal_compress, spatial_enhance, calc_am_rope"
+    },
+    "Flash-VStream-Qwen/models/vstream_qwen2vl_realtime.py": {
+      "sha256": "682fc4dae7fc6e011e3670254b1e3ffc0c021dd2de4117da5814b266d316d936",
+      "description": "Real-time/streaming variant of FlashMemory with incremental temporal compression"
+    },
+    "Flash-VStream-Qwen/models/vstream_qwen2vl_processor.py": {
+      "sha256": "82bc9bc9fd0bde5610a862dd2a155ef08251535e8181efa6cc93de64e2750ec7",
+      "description": "Image/video processor for FlashVStream"
+    },
+    "Flash-VStream-Qwen/models/__init__.py": {
+      "sha256": "a71cd61e3c3195bfe30e60b0e4594d738296d3fb02b272f165b23a90d27b9507",
+      "description": "Module exports"
+    }
+  },
+  "default_config": {
+    "flash_memory_temporal_length": 120,
+    "flash_memory_temporal_method": "kmeans_ordered",
+    "flash_memory_temporal_poolsize": 2,
+    "flash_memory_temporal_pca_dim": 32,
+    "flash_memory_spatial_length": 60,
+    "flash_memory_spatial_method": "klarge_retrieve",
+    "note": "Internal lengths are halved: temporal_length=60, spatial_length=30"
+  }
+}

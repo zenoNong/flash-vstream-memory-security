@@ -1,0 +1,53 @@
+# Experiment Configuration Template
+#
+# Copy this file to experiments/expXX_name/config.yaml and customize.
+
+experiment:
+  id: 'exp00_template'
+  description: 'Template experiment configuration'
+  type: 'baseline'  # baseline | control | intervention | ablation
+
+# Memory configuration (matches Flash-VStream defaults)
+flash_memory:
+  temporal_length: 120
+  temporal_method: 'kmeans_ordered'
+  temporal_poolsize: 2
+  temporal_pca_dim: 32
+  spatial_length: 60
+  spatial_method: 'klarge_retrieve'
+
+# Reproducibility
+seed: 42
+deterministic: true
+
+# Data
+data:
+  video_path: ''           # Set in experiment-specific config
+  target_event: ''         # Description of target event
+  target_frame_ids: []     # Frame indices of target event
+
+# Intervention (only for intervention experiments)
+intervention:
+  type: null               # e.g., 'feature_flood', 'temporal_insert', etc.
+  strength: 0.0
+  temporal_location: 'before_target'  # before_target | after_target | interleaved
+  feature_similarity: 0.0  # 0 = random, 1 = identical to target
+  amount: 0                # Number of competing frames
+
+# Recording
+recording:
+  save_metadata: true
+  save_full_tensors: false
+  output_dir: ''           # Set at runtime
+
+# Reproducibility metadata (auto-filled at runtime)
+runtime:
+  git_commit: ''
+  python_version: ''
+  torch_version: ''
+  cuda_version: ''
+  transformers_version: ''
+  flash_attn_version: ''
+  gpu_name: ''
+  model_identifier: ''
+  timestamp: ''

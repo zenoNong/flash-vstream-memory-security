@@ -1,0 +1,59 @@
+# Experiment 0 — Memory Reproduction
+#
+# Verifies that the Flash-VStream memory pipeline produces correct outputs
+# with synthetic data. No real model or video required.
+
+experiment:
+  id: 'exp00_reproduction'
+  description: 'Synthetic memory reproduction tests — verifies CSM/DAM contract'
+  type: 'baseline'
+
+flash_memory:
+  temporal_length: 120
+  temporal_method: 'kmeans_ordered'
+  temporal_poolsize: 2
+  temporal_pca_dim: 32
+  spatial_length: 60
+  spatial_method: 'klarge_retrieve'
+
+seed: 42
+deterministic: true
+
+# Test cases
+test_cases:
+  # 0A: Short sequence (no compression)
+  - name: 'test_0a_short_sequence'
+    T: 10
+    expect_compression: false
+
+  # 0B: Boundary tests
+  - name: 'test_0b_boundary_exact'
+    T: 60
+    expect_compression: false
+  - name: 'test_0b_boundary_plus_one'
+    T: 61
+    expect_compression: true
+
+  # 0C: Normal compression
+  - name: 'test_0c_normal_120'
+    T: 120
+    expect_compression: true
+  - name: 'test_0c_normal_240'
+    T: 240
+    expect_compression: true
+
+  # 0D: Duplicate feature fallback
+  - name: 'test_0d_duplicate_fallback'
+    T: 120
+    num_unique_features: 5
+    expect_fallback: true
+
+  # 0E: Determinism
+  - name: 'test_0e_determinism'
+    T: 120
+    num_runs: 3
+    expect_deterministic: true
+
+recording:
+  save_metadata: true
+  save_full_tensors: false

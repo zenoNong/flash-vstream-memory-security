@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+dist/
+build/
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Model weights and checkpoints
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.ckpt
+*.onnx
+
+# Large data files
+*.h5
+*.hdf5
+*.npy
+*.npz
+*.pkl
+*.pickle
+
+# Datasets
+datasets/
+data/videos/
+data/frames/
+
+# Results (keep structure, ignore large outputs)
+results/**/*.pt
+results/**/*.bin
+results/**/*.npy
+results/**/*.pkl
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# HuggingFace cache
+.cache/
+*.lock
+
+# Logs (keep structure)
+*.log
+
+# Flash-VStream internal git (we track as plain directory)
+Flash-VStream/.git/
